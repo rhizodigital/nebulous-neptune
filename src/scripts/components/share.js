@@ -23,7 +23,12 @@ class ShareButton {
   }
 
   handleClick() {
-    window.open(this.networkURL, "_blank");
+    const width = 575;
+    const height = 400;
+    const left = window.innerWidth / 2 - width / 2 + window.screenX;
+    const top = window.innerHeight / 2 - height / 2 + window.screenY;
+    const opts = `popup,width=${width},height=${height},top=${top},left=${left}`;
+    window.open(this.networkURL, "share", opts);
   }
 
   bindEvents() {
